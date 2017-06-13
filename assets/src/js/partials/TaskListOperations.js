@@ -41,7 +41,7 @@ class TaskListOperations {
 
   displayAllItems() {
     const allRadio = document.getElementById('all');
-    const allRadioLabel = document.getElementById('#allTasks');
+    const allRadioLabel = document.getElementById('allTasks');
     const tasksList = document.getElementById('myList');
     radioGroupBtnCheck(allRadio);
     radioGroupLabelsClicked(allRadioLabel);

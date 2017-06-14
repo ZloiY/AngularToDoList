@@ -48,11 +48,10 @@ angular
         $scope.allCheckUncheck = !$scope.allCheckUncheck;
       };
       self.delCheckedBtn = function delCheckedBtn() {
-        for (let taskId = 0; taskId < $scope.tasks.length; taskId += 1) {
-          const index = $scope.tasks.indexOf($scope.tasks[taskId]);
-          checkTaskForDeleting(index, $scope.tasks[taskId]) ?  $scope.tasks.slice(index, 1) : taskId += 1;
-          taskId -= 1;
-        }
+        angular.forEach($scope.tasks, (task) => {
+          const index = $scope.tasks.indexOf(task);
+          checkTaskForDeleting(index, task) ? $scope.tasks.splice(index, 1) : 0;
+        });
         $scope.allCheckUncheck = false;
       }
     }]

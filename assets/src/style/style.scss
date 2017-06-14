@@ -9,6 +9,7 @@ $cursorType: pointer;
   font: {
     family: 'MV Boli';
     size: 15px;
+    style: normal;
   }
 }
 @mixin border-style {
@@ -35,6 +36,7 @@ $cursorType: pointer;
 .input-new-task {
   @include text-style;
   border: hidden;
+  color: $btnTextColor;
   padding: 3px;
   margin-bottom: 10px;
 }
@@ -63,6 +65,7 @@ $cursorType: pointer;
 .task-list {
   @include text-style;
   @include border-style;
+  list-style: none;
   margin: 0;
   text-align: center;
   position: relative;
@@ -127,7 +130,8 @@ $cursorType: pointer;
 .group-radio-btn {
   padding: 10px;
   cursor: $cursorType;
-  display: none;
+  display: inline;
+  visibility: visible;
 }
 
 .task-close-btn {
@@ -138,6 +142,7 @@ $cursorType: pointer;
   cursor: $cursorType;
   width: 25px;
   border-radius: 20%;
+  display: inline;
   border-style: solid;
   border-color: $customWhite;
   background-color: $backgroundColor;
@@ -145,15 +150,17 @@ $cursorType: pointer;
 }
 
 .task-close-btn:hover {
-    border-color: $backgroundColor;
-    background-color: $btnBackgroundHoverColor;
-    color: $customWhite;
-    -webkit-box-shadow: inset 0 0 5px $shadowColor;
+  border-color: $backgroundColor;
+  background-color: $btnBackgroundHoverColor;
+  color: $customWhite;
+  -webkit-box-shadow: inset 0 0 5px $shadowColor;
 }
 
 .radio-btn-label {
-   @include border-style;
-    cursor: $cursorType;
+  @include text-style;
+  @include border-style;
+  color: $customWhite;
+  cursor: $cursorType;
 }
 
 .radio-btn-label:hover{
@@ -162,7 +169,9 @@ $cursorType: pointer;
 }
 
 .radio-btn-label-selected {
+  @include text-style;
   @include border-style;
+  color: $customWhite;
   background-color: $btnBackgroundHoverColor;
   cursor: $cursorType;
   -webkit-box-shadow: 0 0 5px $shadowColor;
@@ -185,6 +194,7 @@ $cursorType: pointer;
     cursor: $cursorType;
     margin-right: 20px;
     visibility: visible;
+    display: inline;
 }
 
 .task-checkbox-invisible {

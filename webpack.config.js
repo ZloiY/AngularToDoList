@@ -12,7 +12,7 @@ var buildingPath = {
 module.exports = {
   context: path.join(__dirname, buildingPath.src),
   entry: {
-    main: './src/js/main.js',
+    main: './src/js/main.module.js',
     style: './src/style/style.scss',
   },
   output: {

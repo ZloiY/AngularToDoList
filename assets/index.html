@@ -1,27 +1,16 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="toDoList">
-    <link  rel="stylesheet" href="src/style/style.css">
-    <script src="../node_modules/angular/angular.js" type="text/javascript"></script>
-    <script src="src/js/main.js" type="text/javascript"></script>
-    <div id="myDIV" class="task-list-header" ng-controller="inputController" ng-init="taskName;addBtn">
-        <h2>Akveo To Do List</h2>
-        <input type="text" class="input-new-task" id="itemInput" placeholder="Item name..." size="100" ng-bind="taskName">
-        <input type="button" class="add-new-task-btn" id="addBtn" value="Add" ng-bind="addBtn">
-        <form id="sortDiv" action="" ng-controller="taskSortController" ng-init="allRadioSort;completeRadioSort;activeRadioSort;allLabelSort;completeLabelSort;activeLabelSort">
-            <input type="radio" name="sort" id="all"  class="group-radio-btn" ng-bind="allRadioSort"><span class="radio-btn-label" id="allTasks" ng-bind="allLabelSort">All</span>
-            <input type="radio" name="sort" id="complete"  class="group-radio-btn" ng-bind="completeRadioSort"><span class="radio-btn-label" id="completeTasks" ng-bind="completeLabelSort">Complete</span>
-            <input type="radio" name="sort" id="active"  class="group-radio-btn" ng-bind="activeRadioSort"><span  class="radio-btn-label" id="activeTasks" ng-bind="activeLabelSort">Active</span>
-        </form>
-    </div>
-    <div class="task-list-div" id ="taskListBackgroundDiv" ng-controller="taskListController" ng-init="taskListModel">
-        <ul class="task-list" id="myList" ng-bind="taskListModel"></ul>
-    </div>
-    <div id="btnDiv" class="footer" ng-controller="listOperationsController" ng-init="toggleCheckBtn;delCheckedBtn">
-          <div class="active-tasks" ng-init="activeElements">
-             <label>Active tasks: </label>
-             <span id="itemsNum" ng-bind="activeElements"></span>
-         </div>
-        <input type="button" class="check-uncheck-btn" id = "checkUncheck" value="Check/Uncheck All" ng-bind="toggleCheckBtn">
-        <input type="button" class="del-checked-btn" id="delBtn" value="Delete checked" ng-bind="delCheckedBtn">
-    </div>
+<!doctype html>
+<html lang="en" ng-app="phonecatApp">
+<head>
+    <meta charset="utf-8">
+    <title>Akveo ToDoList</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="src/style/style.css">
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="src/js/main.module.js"></script>
+    <script src="src/js/app/todolist/todolist.module.js"></script>
+    <script src="src/js/app/todolist/todolist.component.js"></script>
+</head>
+
+<todo-list></todo-list>
+
 </html>

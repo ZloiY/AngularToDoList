@@ -12,17 +12,17 @@ var buildingPath = {
 module.exports = {
   context: path.join(__dirname, buildingPath.src),
   entry: {
-    main: './src/js/main.module.js',
+    main: './src/main.build.js',
     style: './src/style/style.scss',
   },
   output: {
     path: path.join(__dirname, buildingPath.dist),
-    filename: 'js/[name].[chunkhash].js'
+    filename: 'js/app/[name].js',
   },
   module: {
     loaders: [{
       test: /\.js$/,
-      exclude: '/src/style/',
+      exclude: '/assets/src/style/',
       loader: 'babel-loader',
       query: {
         presets: ['es2015']
@@ -46,6 +46,10 @@ module.exports = {
       {
         from: 'index.html',
         to: '../',
+      },
+      {
+        from: 'src/js/app/todolist/todolist.template.html',
+        to: 'js/app/todolist'
       }
     ]),
   ]

@@ -65,7 +65,7 @@ $cursorType: pointer;
 .task-list {
   @include text-style;
   @include border-style;
-  list-style: none;
+  list-style: square;
   margin: 0;
   text-align: center;
   position: relative;
@@ -186,6 +186,10 @@ $cursorType: pointer;
 .task-visible {
   display: inline;
   text-align: center;
+}
+
+.task-element {
+  display: block;
 }
 
 .task-invisible {

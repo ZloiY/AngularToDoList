@@ -48,10 +48,9 @@ angular
         $scope.allCheckUncheck = !$scope.allCheckUncheck;
       };
       self.delCheckedBtn = function delCheckedBtn() {
-        const newArr = $scope.tasks.filter((task) => {
+        $scope.tasks = $scope.tasks.filter((task) => {
           return !task.check;
         });
-        $scope.tasks = newArr;
         $scope.allCheckUncheck = false;
       }
     }]

@@ -4,12 +4,12 @@
     <input type="button" class="add-new-task-btn" value="Add" ng-click="$ctrl.addTask($ctrl.name)">
     <div class="task-list-div">
         <form>
-            <input id="allFilter" type="radio" name="sort" ng-model="search.check"  class="group-radio-btn"><label  for="allFilter" class="radio-btn-label-selected" id="allTasks" ng-class="allTasksclass" ng-click="$ctrl.allLabelSort()">All</label>
-            <input id="completeFilter" type="radio" name="sort" ng-model="search.check"  class="group-radio-btn"  ng-value='true'><label for="completeFilter" class="radio-btn-label" id="completeTasks" ng-class="completeTasksclass"  ng-click="$ctrl.completeLabelSort()">Complete</label>
-            <input id="activeFilter" type="radio" name="sort" ng-model="search.check"  class="group-radio-btn" ng-value='false'><label for="activeFilter" class="radio-btn-label" id="activeTasks" ng-class="activeTasksclass" ng-click="$ctrl.activeLabelSort()">Active</label>
+            <input id="allFilter" type="radio" name="sort" ng-model="$ctrl.search.check"  class="group-radio-btn"><label  for="allFilter" class="radio-btn-label-selected" id="allTasks" ng-class="$ctrl.allTasksclass" ng-click="$ctrl.allLabelSort()">All</label>
+            <input id="completeFilter" type="radio" name="sort" ng-model="$ctrl.search.check"  class="group-radio-btn"  ng-value='true'><label for="completeFilter" class="radio-btn-label" id="completeTasks" ng-class="$ctrl.completeTasksclass"  ng-click="$ctrl.completeLabelSort()">Complete</label>
+            <input id="activeFilter" type="radio" name="sort" ng-model="$ctrl.search.check"  class="group-radio-btn" ng-value='false'><label for="activeFilter" class="radio-btn-label" id="activeTasks" ng-class="$ctrl.activeTasksclass" ng-click="$ctrl.activeLabelSort()">Active</label>
         </form>
         <ul class="task-list">
-            <li ng-repeat="task in tasks | filter:search"  class="task-visible">
+            <li ng-repeat="task in $ctrl.tasks | filter:$ctrl.search"  class="task-element">
                 <input type="checkbox" class="task-checkbox-visible" ng-model="task.check" ng-click="$ctrl.taskCheck(task)"/>
                 <p class="task-visible">{{task.name}}</p>
                 <input type="button" class="task-close-btn" value="x" ng-click="$ctrl.closeTask(task)"/>
@@ -17,7 +17,7 @@
         </ul>
     </div>
     <div class="active-tasks">
-        <label>Active tasks: {{activeElements}}</label>
+        <label>Active tasks: {{$ctrl.activeElements}}</label>
     </div>
     <input type="button" class="check-uncheck-btn" value="Check/Uncheck All" ng-click="$ctrl.toggleCheckBtn()">
     <input type="button" class="del-checked-btn" value="Delete checked" ng-click="$ctrl.delCheckedBtn()">

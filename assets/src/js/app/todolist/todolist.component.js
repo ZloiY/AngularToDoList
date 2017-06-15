@@ -15,7 +15,8 @@ angular
           return;
         }
         const task = $scope.task;
-        $scope.task.name = taskName;
+        task.name = taskName;
+        task.check = false;
         $scope.tasks.push(task);
         $scope.activeElements += 1;
       };
@@ -30,13 +31,19 @@ angular
         task.check ? $scope.activeElements -= 1 : $scope.activeElements += 1;
       };
       self.allLabelSort = function allLabelSort() {
-
+        $scope.allTasksclass = 'radio-btn-label-selected';
+        $scope.completeTasksclass = 'radio-btn-label-unselected';
+        $scope.activeTasksclass = 'radio-btn-label-unselected';
       };
       self.completeLabelSort = function completeLabelSort() {
-
+        $scope.completeTasksclass = 'radio-btn-label-selected';
+        $scope.allTasksclass = 'radio-btn-label-unselected';
+        $scope.activeTasksclass = 'radio-btn-label-unselected';
       };
       self.activeLabelSort = function activeLabelSort() {
-
+        $scope.activeTasksclass = 'radio-btn-label-selected';
+        $scope.completeTasksclass = 'radio-btn-label-unselected';
+        $scope.allTasksclass = 'radio-btn-label-unselected';
       };
       self.toggleCheckBtn = function toggleCheckBtn() {
         angular.forEach($scope.tasks, (task) => {

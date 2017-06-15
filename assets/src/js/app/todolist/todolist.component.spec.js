@@ -3,7 +3,7 @@ describe('todoList', () => {
   describe('ToDoListController', () => {
     it('should contain empty input field', inject( ($componentController) => {
          const ctrl = $componentController('todoList');
-         expect(ctrl.name).toBeUndefined();
+         expect(ctrl.name).toBe('');
          }));
     it('should contain empty task array', inject( ($componentController) => {
          const ctrl = $componentController('todoList');

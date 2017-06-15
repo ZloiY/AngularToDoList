@@ -17,48 +17,48 @@ angular
         const task = $scope.task;
         task.name = taskName;
         task.check = false;
-        $scope.tasks.push(task);
-        $scope.activeElements += 1;
+        self.tasks.push(task);
+        self.activeElements += 1;
       };
       self.closeTask = function closeTask(task) {
-        const index = $scope.tasks.indexOf(task);
+        const index = self.tasks.indexOf(task);
         if (index > -1) {
-          $scope.tasks.splice(index, 1);
+          self.tasks.splice(index, 1);
         }
-        !task.check ? $scope.activeElements -= 1 : 0;
+        !task.check ? self.activeElements -= 1 : 0;
       };
       self.taskCheck = function taskCheck(task) {
-        task.check ? $scope.activeElements -= 1 : $scope.activeElements += 1;
+        task.check ? self.activeElements -= 1 : self.activeElements += 1;
       };
       self.allLabelSort = function allLabelSort() {
-        $scope.allTasksclass = 'radio-btn-label-selected';
-        $scope.completeTasksclass = 'radio-btn-label-unselected';
-        $scope.activeTasksclass = 'radio-btn-label-unselected';
+        self.allTasksclass = 'radio-btn-label-selected';
+        self.completeTasksclass = 'radio-btn-label-unselected';
+        self.activeTasksclass = 'radio-btn-label-unselected';
       };
       self.completeLabelSort = function completeLabelSort() {
-        $scope.completeTasksclass = 'radio-btn-label-selected';
-        $scope.allTasksclass = 'radio-btn-label-unselected';
-        $scope.activeTasksclass = 'radio-btn-label-unselected';
+        self.completeTasksclass = 'radio-btn-label-selected';
+        self.allTasksclass = 'radio-btn-label-unselected';
+        self.activeTasksclass = 'radio-btn-label-unselected';
       };
       self.activeLabelSort = function activeLabelSort() {
-        $scope.activeTasksclass = 'radio-btn-label-selected';
-        $scope.completeTasksclass = 'radio-btn-label-unselected';
-        $scope.allTasksclass = 'radio-btn-label-unselected';
+        self.activeTasksclass = 'radio-btn-label-selected';
+        self.completeTasksclass = 'radio-btn-label-unselected';
+        self.allTasksclass = 'radio-btn-label-unselected';
       };
       self.toggleCheckBtn = function toggleCheckBtn() {
-        angular.forEach($scope.tasks, (task) => {
-           if(!$scope.allCheckUncheck !== task.check) {
-             task.check = !$scope.allCheckUncheck;
-             task.check ? $scope.activeElements -= 1 : $scope.activeElements += 1;
+        angular.forEach(self.tasks, (task) => {
+           if(!self.allCheckUncheck !== task.check) {
+             task.check = !self.allCheckUncheck;
+             task.check ? self.activeElements -= 1 : self.activeElements += 1;
            }
         });
-        $scope.allCheckUncheck = !$scope.allCheckUncheck;
+        self.allCheckUncheck = !self.allCheckUncheck;
       };
       self.delCheckedBtn = function delCheckedBtn() {
-        $scope.tasks = $scope.tasks.filter((task) => {
+        self.tasks = self.tasks.filter((task) => {
           return !task.check;
         });
-        $scope.allCheckUncheck = false;
+        self.allCheckUncheck = false;
       }
     }]
   });

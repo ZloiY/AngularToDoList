@@ -5,6 +5,7 @@ angular
   controller:['$scope',
     function ToDoListController($scope) {
       const self = this;
+      self.name = '';
       self.allCheckUncheck = false;
       self.activeElements = 0;
       self.tasks = [];

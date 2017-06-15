@@ -1,17 +1,21 @@
 describe('todoList', () => {
   beforeEach(module('todoList'));
   describe('ToDoListController', () => {
-    it('should contain empty input field', inject(function ($componentController) {
+    it('should contain empty input field', inject( ($componentController) => {
          const ctrl = $componentController('todoList');
          expect(ctrl.name).toBeUndefined();
          }));
-    it('should contain empty task array', inject(function ($componentController) {
+    it('should contain empty task array', inject( ($componentController) => {
          const ctrl = $componentController('todoList');
-         expect(ctrl.tasks).toBeUndefined();
+         expect(ctrl.tasks.length).toBe(0);
         }));
-    it('active task number should equal 0', inject(function ($componentController) {
+    it('active task number should equal 0', inject( ($componentController) => {
         const ctrl = $componentController('todoList');
-        expect(ctrl.activeElements).toBeUndefined();
+        expect(ctrl.activeElements).toBe(0);
         }));
+    it('allCheckUnchek should be false', inject( ($componentController) => {
+      const ctrl = $componentController('todoList');
+      expect(ctrl.allCheckUncheck).toBe(false);
+    }));
   })
 });

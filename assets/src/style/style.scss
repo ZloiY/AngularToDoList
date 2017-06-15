@@ -28,8 +28,8 @@ $cursorType: pointer;
 .task-list-header {
   @include text-style;
   text-align: center;
-  background-color: $backgroundColor;
   color: $customWhite;
+  background-color: $backgroundColor;
   padding-bottom: 10px;
 }
 
@@ -47,13 +47,13 @@ $cursorType: pointer;
   cursor: $cursorType;
   width: 60px;
   padding: 3px;
-  color: $btnTextColor;
   background-color: $customWhite;
+  color: $btnTextColor;
 }
 
 .add-new-task-btn:hover {
-  background-color: $btnBackgroundHoverColor;
   color: $customWhite;
+  background-color: $btnBackgroundHoverColor;
   -webkit-box-shadow: 0 0 5px $shadowColor;
 }
 
@@ -109,8 +109,8 @@ $cursorType: pointer;
 
 .check-uncheck-btn:hover,
 .del-checked-btn:hover {
-  background-color: $btnBackgroundHoverColor;
   color: $customWhite;
+  background-color: $btnBackgroundHoverColor;
   -webkit-box-shadow: 0 0 5px $shadowColor;
 }
 
@@ -130,7 +130,7 @@ $cursorType: pointer;
 .group-radio-btn {
   padding: 10px;
   cursor: $cursorType;
-  display: inline;
+  display: none;
   visibility: visible;
 }
 
@@ -145,14 +145,14 @@ $cursorType: pointer;
   display: inline;
   border-style: solid;
   border-color: $customWhite;
-  background-color: $backgroundColor;
   color: $customWhite;
+  background-color: $backgroundColor;
 }
 
 .task-close-btn:hover {
+  color: $customWhite;
   border-color: $backgroundColor;
   background-color: $btnBackgroundHoverColor;
-  color: $customWhite;
   -webkit-box-shadow: inset 0 0 5px $shadowColor;
 }
 
@@ -164,39 +164,41 @@ $cursorType: pointer;
 }
 
 .radio-btn-label:hover{
-    background-color: $btnBackgroundHoverColor;
-    -webkit-box-shadow: 0 0 5px $shadowColor;
+  background-color: $btnBackgroundHoverColor;
+  -webkit-box-shadow: 0 0 5px $shadowColor;
 }
 
 .radio-btn-label-selected {
   @include text-style;
   @include border-style;
+  cursor: default;
   color: $customWhite;
   background-color: $btnBackgroundHoverColor;
-  cursor: $cursorType;
   -webkit-box-shadow: 0 0 5px $shadowColor;
 }
 
 .radio-btn-label-unselected {
   @include border-style;
+  cursor: $cursorType;
   background-color: $backgroundColor;
 }
 
 .task-visible {
-    display: block;
+  display: inline;
+  text-align: center;
 }
 
 .task-invisible {
-    display: none;
+  display: none;
 }
 
 .task-checkbox-visible {
-    cursor: $cursorType;
-    margin-right: 20px;
-    visibility: visible;
-    display: inline;
+  cursor: $cursorType;
+  margin-right: 20px;
+  visibility: visible;
+  display: inline;
 }
 
 .task-checkbox-invisible {
-    visibility: hidden;
+  visibility: hidden;
 }

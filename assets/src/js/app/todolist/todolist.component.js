@@ -3,7 +3,7 @@ angular
 .component('todoList', {
   templateUrl: 'src/js/app/todolist/todolist.template.html',
   controller:['$scope',
-    function ToDoListController($scope) {
+    function ToDoListHeaderController($scope) {
       const self = this;
       $scope.allCheckUncheck = false;
       $scope.activeElements = 0;

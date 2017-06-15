@@ -9,7 +9,7 @@
             <input id="activeFilter" type="radio" name="sort" ng-model="search.check"  class="group-radio-btn" ng-value='false'><label for="activeFilter" class="radio-btn-label" id="activeTasks" ng-class="activeTasksclass" ng-click="$ctrl.activeLabelSort()">Active</label>
         </form>
         <ul class="task-list">
-            <li ng-repeat="task in tasks | filter:search" class="task-element">
+            <li ng-repeat="task in tasks | filter:search"  class="task-visible">
                 <input type="checkbox" class="task-checkbox-visible" ng-model="task.check" ng-click="$ctrl.taskCheck(task)"/>
                 <p class="task-visible">{{task.name}}</p>
                 <input type="button" class="task-close-btn" value="x" ng-click="$ctrl.closeTask(task)"/>

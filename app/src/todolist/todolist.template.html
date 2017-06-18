@@ -20,7 +20,7 @@
     </ul>
    </div>
   <div class="active-tasks">
-    <label>Active tasks: {{$ctrl.activeElements}}</label>
+    <label ng-model="$ctrl.activeElements">Active tasks: {{$ctrl.activeElements}}</label>
   </div>
   <input type="button" class="check-uncheck-btn" value="Check/Uncheck All" ng-model="$ctrl.checkUncheckBtn" ng-click="$ctrl.toggleCheckBtn()">
   <input type="button" class="del-checked-btn" value="Delete checked" ng-model="$ctrl.delCheckBtn" ng-click="$ctrl.delCheckedBtn()">

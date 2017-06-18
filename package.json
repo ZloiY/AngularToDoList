@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.dev.config.js --host localhost --port 9000 --open --color --hot --progress",
-    "build": " babel webpack.production.config.js -o config.js &&  webpack -p --config config.js && rimraf config.js",
-    "prod-server": "babel webpack.production.config.js -o config.js && webpack -p --config config.js | webpack-dev-server --host localhost --port 8000 --open --quiet && rimraf config.js",
+    "build": " babel webpack.production.config.js -o config.js && webpack -p --config config.js && rimraf config.js",
+    "prod-server": "babel webpack.production.config.js -o config.js && webpack -p --config ./config.js && webpack-dev-server --config ./config.js --host localhost --port 8000 --open --quiet && rimraf config.js",
     "clean": "rimraf dist",
     "unit-tests": "karma start",
     "e2e-client": "webdriver-manager update && webdriver-manager start",

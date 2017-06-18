@@ -4,6 +4,7 @@
   "scripts": {
     "build": "node build.js",
     "start": "node dev-server.js",
+    "clean": "rimraf dist",
     "unit_tests": "karma start",
     "e2e_server": "webdriver-manager update && webdriver-manager start",
     "e2e_tests": "protractor protractor.conf.js"
@@ -30,6 +31,7 @@
     "node-sass": "^4.5.3",
     "protractor": "^5.1.2",
     "rigger": "^0.5.10",
+    "rimraf": "^2.6.1",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.2",
     "webpack": "^2.6.1",

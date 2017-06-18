@@ -5,24 +5,24 @@ var extractSass = new ExtractTextPlugin('./style/[name].css');
 var CopyWebPackPlugin = require('copy-webpack-plugin');
 
 var buildingPath = {
-  src: 'assets',
-  dist: 'dist/src',
+  src: 'app',
+  dist: 'dist',
 };
 
 module.exports = {
   context: path.join(__dirname, buildingPath.src),
   entry: {
     main: './src/main.build.js',
-    style: './src/style/style.scss',
+    style: './style/style.scss',
   },
   output: {
     path: path.join(__dirname, buildingPath.dist),
-    filename: 'js/app/[name].js',
+    filename: 'src/[name].js',
   },
   module: {
     loaders: [{
       test: /\.js$/,
-      exclude: '/assets/src/style/',
+      exclude: '/style/',
       loader: 'babel-loader',
       query: {
         presets: ['es2015']
@@ -45,11 +45,11 @@ module.exports = {
     new CopyWebPackPlugin([
       {
         from: 'index.html',
-        to: '../',
+        to: '',
       },
       {
-        from: 'src/js/app/todolist/todolist.template.html',
-        to: 'js/app/todolist'
+        from: 'src/todolist/todolist.template.html',
+        to: 'src/todolist'
       }
     ]),
   ]

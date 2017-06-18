@@ -1,7 +1,7 @@
 angular
 .module('todoList')
 .component('todoList', {
-  templateUrl: 'src/js/app/todolist/todolist.template.html',
+  templateUrl: 'src/todolist/todolist.template.html',
   controller:['$scope',
     function ToDoListController($scope) {
       const self = this;

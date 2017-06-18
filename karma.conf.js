@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: 'assets/src/js',
+    basePath: 'app',
 
 
     // frameworks to use
@@ -15,15 +15,15 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../style/style.css',
-      '../../../node_modules/bootstrap/dist/css/bootstrap.css',
-      '../../../node_modules/angular/angular.js',
-      '../../../node_modules/angular-mocks/angular-mocks.js',
-      'main.module.js',
-      'app/todolist/todolist.module.js',
-      'app/todolist/todolist.template.html',
-      'app/todolist/todolist.component.js',
-      'app/todolist/*.spec.js'
+      'style/style.css',
+      '../node_modules/bootstrap/dist/css/bootstrap.css',
+      '../node_modules/angular/angular.js',
+      '../node_modules/angular-mocks/angular-mocks.js',
+      'src/main.module.js',
+      'src/todolist/todolist.module.js',
+      'src/todolist/todolist.template.html',
+      'src/todolist/todolist.component.js',
+      'src/todolist/*.spec.js'
     ],
 
 

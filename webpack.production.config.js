@@ -1,7 +1,7 @@
-import webpack from 'webpack';
-import Config from 'webpack-config';
+var webpack = require('webpack');
+var Config = require('webpack-config');
 
-export default new Config().extend('webpack.dev.config.js').merge({
+exports.default = new Config.default().extend('webpack.dev.config.js').merge({
   module: {
     loaders: [{
       test: /\.js$/,

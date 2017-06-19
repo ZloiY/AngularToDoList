@@ -3,7 +3,6 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var extractSass = new ExtractTextPlugin('./style/[name].css');
 var CopyWebPackPlugin = require('copy-webpack-plugin');
-var ConcatPlugin = require('webpack-concat-plugin');
 
 var buildingPath = {
   src: 'app',
@@ -14,7 +13,7 @@ module.exports = {
   context: path.join(__dirname, buildingPath.src),
   entry: {
     main: './src/main.build.js',
-    style: './style/style.scss',
+    style: './style/style.scss'
   },
   output: {
     path: path.join(__dirname, buildingPath.dist),
@@ -22,12 +21,12 @@ module.exports = {
   },
   module: {
     loaders: [{
-      test: /\.scss$/,
-      use: extractSass.extract({
-        fallback: 'style-loader',
-        use: 'css-loader!sass-loader',
-      }),
-    }]
+        test: /\.scss$/,
+        use: extractSass.extract({
+          fallback: 'style-loader',
+          use: 'css-loader!sass-loader',
+        }),
+      }]
   },
   plugins: [
     extractSass,
@@ -40,12 +39,6 @@ module.exports = {
         from: 'src/todolist/todolist.template.html',
         to: 'src/todolist',
       }
-    ]),
-    new ConcatPlugin({
-      useHash: false,
-      sourceMap: false,
-      fileName: 'style/style.css',
-      filesToConcat: ['./dist/style/style.css', './node_modules/bootstrap/dist/css/bootstrap.css']
-    })
+    ])
   ]
 };

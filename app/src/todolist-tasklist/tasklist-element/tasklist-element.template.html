@@ -1,5 +1,5 @@
-<div class="task-element">
-  <input type="checkbox" class="task-checkbox-visible" ng-model="$ctrl.task.check" ng-click="$ctrl.toogleCheck()"/>
+<div class="task-element" ng-click="$ctrl.toggleCheck()">
+  <input type="checkbox" class="task-checkbox-visible" ng-model="$ctrl.task.check"/>
   <p class="task-name-visible">{{$ctrl.task.name}}</p>
   <input id="closeBtn" type="button" class="task-close-btn" value="x" ng-click="$ctrl.delete()"/>
 </div>

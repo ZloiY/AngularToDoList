@@ -13,7 +13,8 @@ function TaskListElementController() {
   self.delete = () => {
     self.onDelete({task: self.task});
   };
-  self.toogleCheck = () => {
+  self.toggleCheck = () => {
+    self.task.check = !self.task.check;
     self.onCheck({task: self.task});
-  }
+  };
 }

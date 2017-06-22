@@ -1,6 +1,6 @@
 describe('todoList', () => {
   beforeEach(module('todoList'));
-  describe('ToDoListController', () => {
+  describe('TodoListController', () => {
     it('should contain empty input field', inject(($componentController) => {
       const ctrl = $componentController('todoList');
       expect(ctrl.name).toBe('');

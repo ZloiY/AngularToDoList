@@ -198,6 +198,7 @@ $cursorType: pointer;
   margin-right: 20px;
   visibility: visible;
   display: inline;
+  pointer-events: none;
 }
 
 .task-checkbox-invisible {

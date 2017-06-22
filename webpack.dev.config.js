@@ -34,10 +34,21 @@ module.exports = {
       {
         from: 'index.html',
         to: '',
-      },
-      {
+      }, {
         from: 'src/todolist/todolist.template.html',
         to: 'src/todolist',
+      }, {
+        from: 'src/todolist-check-del-btns/todolist-check-del-btns.template.html',
+        to: 'src/todolist-check-del-btns',
+      }, {
+        from: 'src/todolist-input/todolist-input.template.html',
+        to: 'src/todolist-input',
+      }, {
+        from: 'src/todolist-tasklist/todolist-tasklist.template.html',
+        to: 'src/todolist-tasklist',
+      }, {
+        from: 'src/todolist-tasklist/tasklist-element/tasklist-element.template.html',
+        to: 'src/todolist-tasklist/tasklist-element'
       }
     ])
   ]

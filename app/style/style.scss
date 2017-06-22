@@ -1,8 +1,13 @@
 $customWhite: #f8ffff;
-$backgroundColor: #36c5f4;
+$textColor: rgb(231, 231, 231);
+$backgroundColor: rgba(191, 75, 26, 0.83);
 $btnBackgroundHoverColor: #527df4;
-$shadowColor: rgb(42, 42, 225);
-$btnTextColor: #404040;
+$shadowColor: #4135f4;
+$inputBackgroundColor: rgb(50, 69, 133);
+$footerBackgroundColor: rgb(50, 69, 133);
+$btnsColor: rgb(52, 80, 146);
+$shadowColor: rgba(18, 33, 36, 0.89);
+$scrollBarCollor: rgb(123, 123, 123);
 $cursorType: pointer;
 
 @mixin text-style {
@@ -14,9 +19,9 @@ $cursorType: pointer;
 }
 @mixin border-style {
   border: {
-    color: $btnBackgroundHoverColor;
+    color: transparent;
     style: solid;
-    radius: 10px;
+    radius: 20px;
     width: 1px;
   }
 }
@@ -25,20 +30,55 @@ $cursorType: pointer;
   box-sizing: border-box;
 }
 
+.akveo-label {
+  float: left;
+  margin: 20px;
+  font-family: 'Calibri Light';
+  font-size: 18px;
+}
+
+.input-background {
+  background-color: $inputBackgroundColor;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 50px;
+  -webkit-box-shadow: 0 2px 7px $shadowColor;
+}
+
 .task-list-base {
   @include text-style;
   text-align: center;
   color: $customWhite;
   background-color: $backgroundColor;
-  padding-bottom: 10px;
 }
 
 .input-new-task-name {
   @include text-style;
   border: hidden;
-  color: $btnTextColor;
+  background-color: $inputBackgroundColor;
+  color: $textColor;
+  border-bottom: 1px solid $textColor;
   padding: 3px;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+input:focus {
+  outline: none;
+}
+
+:focus::-webkit-input-placeholder {
+  text-indent: 500px;
+  transition: text-indent 0.6s ease;
+}
+
+::-webkit-input-placeholder {
+  color: $textColor;
+  text-indent: 0px;
+  transition: text-indent 0.6s ease;
 }
 
 .add-task-btn {
@@ -47,57 +87,62 @@ $cursorType: pointer;
   cursor: $cursorType;
   width: 60px;
   padding: 3px;
-  background-color: $customWhite;
-  color: $btnTextColor;
+  background-color: $btnsColor;
+  -webkit-box-shadow: 3px 1px 4px $shadowColor;
+  color: $textColor;
 }
 
 .add-task-btn:hover {
-  color: $customWhite;
+  color: $textColor;
   background-color: $btnBackgroundHoverColor;
-  -webkit-box-shadow: 0 0 5px $shadowColor;
+  -webkit-box-shadow: 4px 2px 5px $shadowColor;
+}
+
+.add-task-btn:active {
+  color: $btnsColor;
+  background-color: $textColor;
+  -webkit-box-shadow: inset 1px 1px 5px $shadowColor;
 }
 
 .task-list {
   @include text-style;
-  @include border-style;
   list-style: none;
-  margin-top: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
   text-align: center;
   position: relative;
   color: $customWhite;
-  background-color: $backgroundColor;
-  width: 50%;
-  left: 25%;
-  border-radius: 30px;
-  min-height: 200px;
-  max-height: 200px;
-  overflow-y: scroll;
+  width: 70%;
+  left: 15%;
+}
+
+.scroll {
+  margin-top: 80px;
+  padding-bottom: 50px;
+  min-height: 800px;
+  max-height: 800px;
+  overflow-y: auto;
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
+  margin-left: 100px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: $btnBackgroundHoverColor;
-  border-radius: 10px;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: $shadowColor;
+  background-color: $inputBackgroundColor;
 }
 
 .check-uncheck-btn,
 .del-checked-btn {
   @include text-style;
-  margin-top: 30px;
-  margin-bottom: 5px;
-  background-color: $customWhite;
-  color: $btnTextColor;
-  padding: 10px 15px;
+  background-color: $btnsColor;
+  color: $textColor;
+  -webkit-box-shadow: 3px 1px 4px $shadowColor;
+  padding: 8px 12px;
   text-decoration: none;
   display: inline-block;
   cursor: $cursorType;
@@ -106,83 +151,132 @@ $cursorType: pointer;
 
 .check-uncheck-btn:hover,
 .del-checked-btn:hover {
-  color: $customWhite;
+  color: $textColor;
   background-color: $btnBackgroundHoverColor;
-  -webkit-box-shadow: 0 0 5px $shadowColor;
+  -webkit-box-shadow: 4px 2px 5px $shadowColor;
+}
+
+.check-uncheck-btn:active,
+.del-checked-btn:active {
+  color: $btnsColor;
+  background-color: $textColor;
+  -webkit-box-shadow: inset 1px 1px 5px $shadowColor;
 }
 
 .active-tasks-label {
-  @include text-style;
-  padding-right: 20px;
+  font-family: 'Calibri Light';
+  font-size: 20px;
+  float: left;
+  padding-top: 20px;
+  padding-left: 20px;
   color: $customWhite;
   text-decoration: none;
   display: inline-block;
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
   text-align: center;
-  background-color: $backgroundColor;
+  background-color: $footerBackgroundColor;
+  -webkit-box-shadow: 0 -2px 7px $shadowColor;
 }
 
-.group-radio-btn {
-  padding: 10px;
+.footerBtns {
+  float: right;
+  padding: 12px;
+}
+
+.radio-btn {
   cursor: $cursorType;
   display: none;
   visibility: visible;
 }
 
+.radio-btns-group {
+  position: absolute;
+  margin-top: 25px;
+  margin-left: 45%;
+}
+
 .task-close-btn {
   @include text-style;
-  margin-left: 20px;
-  margin-bottom: 7px;
-  margin-right: 5px;
   cursor: $cursorType;
-  width: 25px;
-  border-radius: 20%;
+  margin-top: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 7px;
+  padding-left: 7px;
+  border-radius: 20px;
   display: inline;
   border-style: solid;
-  border-color: $customWhite;
-  color: $customWhite;
-  background-color: $backgroundColor;
+  border-color: transparent;
+  color: $textColor;
+  background-color: $btnsColor;
+  -webkit-box-shadow: 3px 1px 5px $shadowColor;
 }
 
 .task-close-btn:hover {
-  color: $customWhite;
-  border-color: $backgroundColor;
   background-color: $btnBackgroundHoverColor;
-  -webkit-box-shadow: inset 0 0 5px $shadowColor;
+  -webkit-box-shadow: 4px 2px 4px $shadowColor;
+}
+
+.task-close-btn:active {
+  color: $btnsColor;
+  background-color: $textColor;
+  -webkit-box-shadow: inset 1px 1px 4px $shadowColor;
 }
 
 .radio-btn-label {
   @include text-style;
   @include border-style;
-  color: $customWhite;
+  padding: 5px;
+  color: $textColor;
+  background-color: $btnsColor;
   cursor: $cursorType;
+  -webkit-box-shadow: 3px 1px 4px $shadowColor;
 }
 
-.radio-btn-label:hover{
+.radio-btn-label:hover {
   background-color: $btnBackgroundHoverColor;
-  -webkit-box-shadow: 0 0 5px $shadowColor;
+  -webkit-box-shadow: 4px 2px 5px $shadowColor;
+}
+
+.radio-btn-label:active {
+  color: $btnsColor;
+  background-color: $textColor;
+  -webkit-box-shadow: inset 1px 1px 5px $shadowColor;
 }
 
 .radio-btn-label-selected {
   @include text-style;
   @include border-style;
   cursor: default;
-  color: $customWhite;
-  background-color: $btnBackgroundHoverColor;
-  -webkit-box-shadow: 0 0 5px $shadowColor;
+  padding: 5px;
+  color: $btnsColor;
+  background-color: $textColor;
+  -webkit-box-shadow: inset 1px 1px 5px $shadowColor;
 }
 
-.radio-btn-label-unselected {
-  @include border-style;
-  cursor: $cursorType;
-  background-color: $backgroundColor;
-}
-
-.task-name-visible {
+.task-name {
   display: inline;
   text-align: center;
+  margin-right: 30%;
+  margin-top: 10px;
+  text-decoration: none;
+  user-select: none;
+}
+
+.task-name-complete {
+  display: inline;
+  text-align: center;
+  margin-right: 30%;
+  margin-top: 10px;
+  text-decoration: line-through;
+  user-select: none;
 }
 
 .task-name-invisible {
@@ -191,16 +285,48 @@ $cursorType: pointer;
 
 .task-list-element {
   display: block;
+  text-align: center;
+  color: $textColor;
+  height: 45px;
+  border-bottom: 1px solid $inputBackgroundColor;
 }
 
-.task-checkbox-visible {
+.task-list-element:hover {
+  background-color: $backgroundColor;
+  border-bottom-color: $backgroundColor;
+  -webkit-box-shadow: 3px 2px 5px $shadowColor;
+}
+
+.task-checkbox {
   cursor: $cursorType;
-  margin-right: 20px;
+  margin-right: 30%;
+  margin-top: 10px;
   visibility: visible;
   display: inline;
   pointer-events: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: 2px 1px 7px $shadowColor;
+  background-color: $btnsColor;
+  border: 1px solid transparent;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  position: relative;
 }
 
-.task-checkbox-invisible {
-  visibility: hidden;
+.task-checkbox:checked {
+  background-color:$textColor;
+  -webkit-box-shadow: inset 1px 1px 5px $shadowColor;
+  color: $inputBackgroundColor;
 }
+
+.task-checkbox:checked:after {
+  content: '\2714';
+  top: 3px;
+  font-size: 16px;
+  position: absolute;
+  left: 3px;
+}
+

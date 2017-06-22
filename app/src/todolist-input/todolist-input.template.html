@@ -1,2 +1,5 @@
-<input class="input-new-task-name" placeholder="Item name..." size="100" ng-model="$ctrl.name"  ng-keyup="$ctrl.enterPressed($event.keyCode)">
-<input type="button" class="add-task-btn" value="Add" ng-model="$ctrl.addBtn" ng-click="$ctrl.addTask($ctrl.name)">
+<div class="input-background">
+  <label class="akveo-label">Akveo Todo List</label>
+  <input class="input-new-task-name" placeholder="Item name..." size="60" ng-model="$ctrl.name"  ng-keyup="$ctrl.enterPressed($event.keyCode)">
+  <input type="button" class="add-task-btn" value="Add" ng-model="$ctrl.addBtn" ng-click="$ctrl.addTask($ctrl.name)">
+</div>

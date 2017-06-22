@@ -36,22 +36,23 @@ function TodoListTaskListController() {
   };
   self.allLabelSort = () => {
     self.allTasksclass = 'radio-btn-label-selected';
-    self.completeTasksclass = 'radio-btn-label-unselected';
-    self.activeTasksclass = 'radio-btn-label-unselected';
+    self.completeTasksclass = 'radio-btn-label';
+    self.activeTasksclass = 'radio-btn-label';
   };
   self.completeLabelSort = () => {
     self.completeTasksclass = 'radio-btn-label-selected';
-    self.allTasksclass = 'radio-btn-label-unselected';
-    self.activeTasksclass = 'radio-btn-label-unselected';
+    self.allTasksclass = 'radio-btn-label';
+    self.activeTasksclass = 'radio-btn-label';
   };
   self.activeLabelSort = () => {
     self.activeTasksclass = 'radio-btn-label-selected';
-    self.completeTasksclass = 'radio-btn-label-unselected';
-    self.allTasksclass = 'radio-btn-label-unselected';
+    self.completeTasksclass = 'radio-btn-label';
+    self.allTasksclass = 'radio-btn-label';
   };
   self.$onInit = () => {
     self.tasks = [];
     self.allCheckUncheck = false;
     self.activeElements = 0;
+    self.allLabelSort();
   };
 }

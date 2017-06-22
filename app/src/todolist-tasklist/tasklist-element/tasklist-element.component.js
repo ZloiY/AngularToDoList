@@ -15,6 +15,7 @@ function TaskListElementController() {
   };
   self.toggleCheck = () => {
     self.task.check = !self.task.check;
+    self.task.check ? self.completeTask = 'task-name-complete' : self.completeTask = 'task-name';
     self.onCheck({task: self.task});
   };
 }

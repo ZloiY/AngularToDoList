@@ -1,14 +1,18 @@
 <todo-list-input task="task"  on-add="$ctrl.addNewTask(task)"></todo-list-input>
-<div>
-  <input id="allFilter" type="radio" name="sort" ng-model="$ctrl.search.check"  class="group-radio-btn">
-  <label  for="allFilter" class="radio-btn-label-selected" id="allTasks" ng-model="$ctrl.allTasks" ng-class="$ctrl.allTasksclass" ng-click="$ctrl.allLabelSort()">All</label>
-  <input id="completeFilter" type="radio" name="sort" ng-model="$ctrl.search.check"  class="group-radio-btn"  ng-value='true'>
-  <label for="completeFilter" class="radio-btn-label" id="completeTasks" ng-model="$ctrl.completeTasks" ng-class="$ctrl.completeTasksclass"  ng-click="$ctrl.completeLabelSort()">Complete</label>
-  <input id="activeFilter" type="radio" name="sort" ng-model="$ctrl.search.check"  class="group-radio-btn" ng-value='false'>
-  <label for="activeFilter" class="radio-btn-label" id="activeTasks" ng-model="$ctrl.activeTasks" ng-class="$ctrl.activeTasksclass" ng-click="$ctrl.activeLabelSort()">Active</label>
+<div class="scroll">
+  <div class="task-list">
+    <tasklist-element ng-repeat="task in $ctrl.tasks | filter:$ctrl.search" task="task" on-delete="$ctrl.closeTask(task)" on-check="$ctrl.taskCheck(task)"></tasklist-element>
+  </div>
 </div>
-<div class="task-list">
-  <tasklist-element ng-repeat="task in $ctrl.tasks | filter:$ctrl.search" task="task" on-delete="$ctrl.closeTask(task)" on-check="$ctrl.taskCheck(task)"></tasklist-element>
+<div class="footer">
+  <label class="active-tasks-label" ng-model="$ctrl.activeElements">Active tasks: {{$ctrl.activeElements}}</label>
+  <div class="radio-btns-group">
+    <input id="allFilter" type="radio" name="sort" ng-model="$ctrl.search.check"  class="radio-btn">
+    <label  for="allFilter" class="radio-btn-label" id="allTasks" ng-model="$ctrl.allTasks" ng-class="$ctrl.allTasksclass" ng-click="$ctrl.allLabelSort()">All</label>
+    <input id="completeFilter" type="radio" name="sort" ng-model="$ctrl.search.check" class="radio-btn" ng-value='true'>
+    <label for="completeFilter" class="radio-btn-label" id="completeTasks" ng-model="$ctrl.completeTasks" ng-class="$ctrl.completeTasksclass"  ng-click="$ctrl.completeLabelSort()">Complete</label>
+    <input id="activeFilter" type="radio" name="sort" ng-model="$ctrl.search.check" class="radio-btn" ng-value='false'>
+    <label for="activeFilter" class="radio-btn-label" id="activeTasks" ng-model="$ctrl.activeTasks" ng-class="$ctrl.activeTasksclass" ng-click="$ctrl.activeLabelSort()">Active</label>
+  </div>
+  <todo-list-check-del-btns on-toggle-check-btn="$ctrl.toggleTasksCheckboxes()" on-del-checked-btn="$ctrl.delCheckedTasks()"></todo-list-check-del-btns>
 </div>
-<label class="active-tasks-label" ng-model="$ctrl.activeElements">Active tasks: {{$ctrl.activeElements}}</label>
-<todo-list-check-del-btns on-toggle-check-btn="$ctrl.toggleTasksCheckboxes()" on-del-checked-btn="$ctrl.delCheckedTasks()"></todo-list-check-del-btns>

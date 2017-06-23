@@ -1,8 +1,6 @@
-$customWhite: #f8ffff;
 $textColor: rgb(231, 231, 231);
 $backgroundColor: rgba(191, 75, 26, 0.83);
 $btnBackgroundHoverColor: #527df4;
-$shadowColor: #4135f4;
 $inputBackgroundColor: rgb(50, 69, 133);
 $footerBackgroundColor: rgb(50, 69, 133);
 $btnsColor: rgb(52, 80, 146);
@@ -12,11 +10,20 @@ $cursorType: pointer;
 
 @mixin text-style {
   font: {
+    family: 'Calibri Light';
+    size: 18px;
+    style: normal;
+  }
+}
+
+@mixin btn-text-style {
+  font: {
     family: 'MV Boli';
     size: 15px;
     style: normal;
   }
 }
+
 @mixin border-style {
   border: {
     color: transparent;
@@ -26,15 +33,46 @@ $cursorType: pointer;
   }
 }
 
+@mixin btn-normal-shadow {
+  -webkit-box-shadow: 3px 1px 5px $shadowColor;
+}
+
+@mixin btn-normal-style {
+  border: hidden;
+  cursor: $cursorType;
+  background-color: $btnsColor;
+  @include btn-normal-shadow;
+  color: $textColor;
+}
+
+@mixin btn-hover-shadow {
+  -webkit-box-shadow: 4px 2px 4px $shadowColor;
+}
+
+@mixin btn-hover-style {
+  color: $textColor;
+  background-color: $btnBackgroundHoverColor;
+@include btn-hover-shadow;
+}
+
+@mixin  btn-active-shadow {
+  -webkit-box-shadow: inset 2px 1px 4px $shadowColor;
+}
+
+@mixin btn-active-style {
+  color: $btnsColor;
+  background-color: $textColor;
+  @include btn-active-shadow;
+}
+
 * {
   box-sizing: border-box;
 }
 
 .akveo-label {
+  @include text-style;
   float: left;
   margin: 20px;
-  font-family: 'Calibri Light';
-  font-size: 18px;
 }
 
 .input-background {
@@ -49,14 +87,14 @@ $cursorType: pointer;
 }
 
 .task-list-base {
-  @include text-style;
+  @include btn-text-style;
   text-align: center;
-  color: $customWhite;
+  color: $textColor;
   background-color: $backgroundColor;
 }
 
 .input-new-task-name {
-  @include text-style;
+  @include btn-text-style;
   border: hidden;
   background-color: $inputBackgroundColor;
   color: $textColor;
@@ -82,34 +120,27 @@ input:focus {
 }
 
 .add-task-btn {
-  @include text-style;
+  @include btn-text-style;
+  @include btn-normal-style;
   border: hidden;
-  cursor: $cursorType;
   width: 60px;
   padding: 3px;
-  background-color: $btnsColor;
-  -webkit-box-shadow: 3px 1px 4px $shadowColor;
-  color: $textColor;
 }
 
 .add-task-btn:hover {
-  color: $textColor;
-  background-color: $btnBackgroundHoverColor;
-  -webkit-box-shadow: 4px 2px 5px $shadowColor;
+ @include btn-hover-style;
 }
 
 .add-task-btn:active {
-  color: $btnsColor;
-  background-color: $textColor;
-  -webkit-box-shadow: inset 1px 1px 5px $shadowColor;
+ @include btn-active-style;
 }
 
 .task-list {
-  @include text-style;
+  @include btn-text-style;
   list-style: none;
   text-align: center;
   position: relative;
-  color: $customWhite;
+  color: $textColor;
   width: 70%;
   left: 15%;
 }
@@ -123,7 +154,6 @@ input:focus {
 }
 
 ::-webkit-scrollbar {
-  margin-left: 100px;
   width: 5px;
 }
 
@@ -138,10 +168,8 @@ input:focus {
 
 .check-uncheck-btn,
 .del-checked-btn {
-  @include text-style;
-  background-color: $btnsColor;
-  color: $textColor;
-  -webkit-box-shadow: 3px 1px 4px $shadowColor;
+  @include btn-text-style;
+  @include btn-normal-style;
   padding: 8px 12px;
   text-decoration: none;
   display: inline-block;
@@ -151,25 +179,20 @@ input:focus {
 
 .check-uncheck-btn:hover,
 .del-checked-btn:hover {
-  color: $textColor;
-  background-color: $btnBackgroundHoverColor;
-  -webkit-box-shadow: 4px 2px 5px $shadowColor;
+  @include btn-hover-style;
 }
 
 .check-uncheck-btn:active,
 .del-checked-btn:active {
-  color: $btnsColor;
-  background-color: $textColor;
-  -webkit-box-shadow: inset 1px 1px 5px $shadowColor;
+  @include btn-active-style;
 }
 
 .active-tasks-label {
-  font-family: 'Calibri Light';
-  font-size: 20px;
+  @include btn-text-style;
   float: left;
   padding-top: 20px;
   padding-left: 20px;
-  color: $customWhite;
+  color: $textColor;
   text-decoration: none;
   display: inline-block;
 }
@@ -203,68 +226,57 @@ input:focus {
 }
 
 .task-close-btn {
-  @include text-style;
+  @include btn-text-style;
+  @include btn-normal-style;
+  @include border-style;
   cursor: $cursorType;
   margin-top: 5px;
+  position: fixed;
+  right: 25%;
   padding-top: 1px;
   padding-bottom: 1px;
   padding-right: 7px;
   padding-left: 7px;
-  border-radius: 20px;
   display: inline;
-  border-style: solid;
-  border-color: transparent;
-  color: $textColor;
-  background-color: $btnsColor;
-  -webkit-box-shadow: 3px 1px 5px $shadowColor;
 }
 
 .task-close-btn:hover {
-  background-color: $btnBackgroundHoverColor;
-  -webkit-box-shadow: 4px 2px 4px $shadowColor;
+  @include btn-hover-style;
 }
 
 .task-close-btn:active {
-  color: $btnsColor;
-  background-color: $textColor;
-  -webkit-box-shadow: inset 1px 1px 4px $shadowColor;
+  @include btn-active-style;
 }
 
 .radio-btn-label {
-  @include text-style;
+  @include btn-text-style;
   @include border-style;
+  @include btn-normal-style;
   padding: 5px;
-  color: $textColor;
-  background-color: $btnsColor;
   cursor: $cursorType;
-  -webkit-box-shadow: 3px 1px 4px $shadowColor;
 }
 
 .radio-btn-label:hover {
-  background-color: $btnBackgroundHoverColor;
-  -webkit-box-shadow: 4px 2px 5px $shadowColor;
+  @include btn-hover-style;
 }
 
 .radio-btn-label:active {
-  color: $btnsColor;
-  background-color: $textColor;
-  -webkit-box-shadow: inset 1px 1px 5px $shadowColor;
+  @include btn-active-style;
 }
 
 .radio-btn-label-selected {
-  @include text-style;
+  @include btn-text-style;
   @include border-style;
+  @include btn-active-style;
   cursor: default;
   padding: 5px;
-  color: $btnsColor;
-  background-color: $textColor;
-  -webkit-box-shadow: inset 1px 1px 5px $shadowColor;
 }
 
 .task-name {
   display: inline;
-  text-align: center;
-  margin-right: 30%;
+  position: fixed;
+  left: 50%;
+  right: 50%;
   margin-top: 10px;
   text-decoration: none;
   user-select: none;
@@ -272,8 +284,9 @@ input:focus {
 
 .task-name-complete {
   display: inline;
-  text-align: center;
-  margin-right: 30%;
+  position: fixed;
+  left: 50%;
+  right: 50%;
   margin-top: 10px;
   text-decoration: line-through;
   user-select: none;
@@ -298,28 +311,25 @@ input:focus {
 }
 
 .task-checkbox {
+  @include border-style;
   cursor: $cursorType;
-  margin-right: 30%;
-  margin-top: 10px;
   visibility: visible;
   display: inline;
+  position: relative;
+  top: 15%;
+  right: 35%;
   pointer-events: none;
   -webkit-appearance: none;
   -webkit-box-shadow: 2px 1px 7px $shadowColor;
   background-color: $btnsColor;
-  border: 1px solid transparent;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  border-radius: 20px;
-  position: relative;
 }
 
 .task-checkbox:checked {
-  background-color:$textColor;
-  -webkit-box-shadow: inset 1px 1px 5px $shadowColor;
-  color: $inputBackgroundColor;
+  @include btn-active-style;
 }
 
 .task-checkbox:checked:after {

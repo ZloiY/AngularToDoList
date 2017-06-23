@@ -33,6 +33,7 @@ function TodoListTaskListController() {
     angular.forEach(self.tasks, (task) => {
       if(!self.allCheckUncheck !== task.check) {
         task.check = !self.allCheckUncheck;
+        task.check ? self.completeTask = 'task-name-complete' : self.completeTask = 'task-name';
         task.check ? self.activeElements -= 1 : self.activeElements += 1;
       }
     });
@@ -61,6 +62,7 @@ function TodoListTaskListController() {
     self.tasks = [];
     self.allCheckUncheck = false;
     self.activeElements = 0;
+    self.completeTask ='';
     self.allLabelSort();
   };
 }

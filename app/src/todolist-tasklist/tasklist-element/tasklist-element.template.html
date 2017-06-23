@@ -1,5 +1,5 @@
 <div class="task-list-element" ng-click="$ctrl.toggleCheck()">
-  <input type="checkbox" class="task-checkbox" ng-model="$ctrl.task.check"/>
-  <p class="task-name" ng-class="$ctrl.completeTask">{{$ctrl.task.name}}</p>
-  <input id="closeBtn" type="button" class="task-close-btn" value="x" ng-click="$ctrl.delete()"/>
+  <input type="checkbox" class="task-checkbox" ng-model="$ctrl.task.check" ng-change="$ctrl.stateChange()"/>
+  <p ng-class="$ctrl.completeTask">{{$ctrl.task.name}}</p><!--
+  --><input id="closeBtn" type="button" class="task-close-btn" value="x" ng-click="$ctrl.delete()"/>
 </div>

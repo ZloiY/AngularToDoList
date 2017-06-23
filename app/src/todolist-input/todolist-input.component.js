@@ -6,17 +6,18 @@ module('todoList')
     bindings: {
       task: '<',
       onAdd: '&',
-    }
+    },
   });
 
 function TodoListInputController() {
   const self = this;
   self.name = '';
-  this.enterPressed = (keyCode) => {
+  self.enterPressed = (keyCode) => {
     if (keyCode === 13) {
       self.addTask(self.name);
     }
   };
+
   self.addTask = (taskName) => {
     if (taskName.length === 0) {
       alert('You must entry task name.');

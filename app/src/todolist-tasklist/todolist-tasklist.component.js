@@ -12,19 +12,23 @@ function TodoListTaskListController() {
     }
     !task.check ? self.activeElements -= 1 : 0;
   };
+
   self.taskCheck = (task) => {
     task.check ? self.activeElements -= 1 : self.activeElements += 1;
   };
+
   self.addNewTask = (task) => {
     self.tasks.push(task);
     self.activeElements += 1;
   };
+
   self.delCheckedTasks = () => {
     self.tasks = self.tasks.filter((task) => {
       return !task.check;
     });
     self.allCheckUncheck = false;
   };
+
   self.toggleTasksCheckboxes = () => {
     angular.forEach(self.tasks, (task) => {
       if(!self.allCheckUncheck !== task.check) {
@@ -34,21 +38,25 @@ function TodoListTaskListController() {
     });
     self.allCheckUncheck = !self.allCheckUncheck;
   };
+
   self.allLabelSort = () => {
     self.allTasksclass = 'radio-btn-label-selected';
     self.completeTasksclass = 'radio-btn-label';
     self.activeTasksclass = 'radio-btn-label';
   };
+
   self.completeLabelSort = () => {
     self.completeTasksclass = 'radio-btn-label-selected';
     self.allTasksclass = 'radio-btn-label';
     self.activeTasksclass = 'radio-btn-label';
   };
+
   self.activeLabelSort = () => {
     self.activeTasksclass = 'radio-btn-label-selected';
     self.completeTasksclass = 'radio-btn-label';
     self.allTasksclass = 'radio-btn-label';
   };
+
   self.$onInit = () => {
     self.tasks = [];
     self.allCheckUncheck = false;

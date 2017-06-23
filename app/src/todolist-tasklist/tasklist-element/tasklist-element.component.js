@@ -5,7 +5,7 @@ angular.module('todoList').component('tasklistElement', {
     task: '<',
     onCheck: '&',
     onDelete: '&',
-  }
+  },
 });
 
 function TaskListElementController() {
@@ -13,6 +13,7 @@ function TaskListElementController() {
   self.delete = () => {
     self.onDelete({task: self.task});
   };
+
   self.toggleCheck = () => {
     self.task.check = !self.task.check;
     self.task.check ? self.completeTask = 'task-name-complete' : self.completeTask = 'task-name';

@@ -5,8 +5,8 @@ module('todoList').
     controller: TodolistCheckDelBtnsController,
     bindings: {
       onToggleCheckBtn: '&',
-      onDelCheckedBtn: '&'
-    }
+      onDelCheckedBtn: '&',
+    },
 });
 
 function TodolistCheckDelBtnsController() {
@@ -14,6 +14,7 @@ function TodolistCheckDelBtnsController() {
   self.toggleCheckBtn = () => {
     self.onToggleCheckBtn();
   };
+
   self.delCheckedBtn = () => {
     self.onDelCheckedBtn();
   }
